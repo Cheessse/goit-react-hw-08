@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.input {
+    border-radius: 8px;
+    padding-left: 20px;
+    width: 320px;
+    height: 40px;
+    border: 1px solid black;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+.input:hover {
+    border-color: coral;
+    transition: 300ms linear, color 300ms linear;
+}
+
+.input:focus {
+    border-color: coral;
+    transition: 300ms linear, color 300ms linear;
+}

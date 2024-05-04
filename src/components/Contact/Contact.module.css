@@ -1,0 +1,47 @@
+.contactContainer {
+    border: 1px solid black;
+    border-radius: 8px;
+    list-style-type: none;
+    box-Shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 280px;
+}
+
+.contactContainer:hover {
+    border-color: coral;
+    transition: 300ms linear, color 300ms linear;
+}
+
+.button {
+    padding: 8px;
+}
+
+.button {
+    background-color: coral;
+    border: 1px solid coral;
+    border-radius: 8px;
+    color: #fff;
+    padding: 7px;
+    max-width: 100px;
+    margin: 0 auto;
+    width: 280px;
+}
+
+.button:hover {
+    color: black;
+    background-color: transparent;
+    transition: 300ms linear, color 300ms linear;
+}
+
+.userdata {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin: 0px;
+    color: black;
+    margin-bottom: 5px;
+}
+
+.userdata:last-child {
+    margin-bottom: 10px;
+}
