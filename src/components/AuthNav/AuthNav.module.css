@@ -1,0 +1,21 @@
+.link {
+    display: flex;
+    gap: 15px;
+}
+
+.item {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    color: #404565;
+}
+
+.active {
+    color: #8590c0;
+}
+
+.item:hover {
+    color: #8590c0;
+    transition: 300ms linear, color 300ms linear;
+}

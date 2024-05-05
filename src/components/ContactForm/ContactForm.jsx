@@ -1,53 +1,45 @@
-import { useState } from "react";
-import css from "./ContactForm.module.css";
-import toast, { Toaster } from "react-hot-toast";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsOps";
+import { addContact } from "../../redux/contacts/operations";
+import css from "./ContactForm.module.css";
 
-const ContactForm = () => {
-  const [name, setName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+export const ContactForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (name.trim() === "" || phoneNumber.trim() === "") {
-      toast.error("Name and phone number are required.", {
-        position: "top-right",
-      });
-    } else if (name.trim().length < 3 || phoneNumber.trim().length < 3) {
-      toast.error("Name and phone number must be at least 3 characters long.", {
-        position: "top-right",
-      });
-      setName("");
-      setPhoneNumber("");
-    } else {
-      dispatch(addContact({ name, phoneNumber }));
-      setName("");
-      setPhoneNumber("");
-    }
+  const initialValues = {
+    name: "",
+    number: "",
   };
 
-  function handleChangeName(e) {
-    setName(e.target.value);
-  }
+  const contactSchema = Yup.object().shape({
+    name: Yup.string().required("Name is required").trim().min(3, "Must be at least 3 characters").max(20, "Must be 20 characters or less"),
+    number: Yup.string().required("Phone number is required").trim().min(3, "Must be at least 3 characters").max(20, "Must be 20 characters or less"),
+  });
 
-  const handleChangePhoneNumber = (e) => {
-    setPhoneNumber(e.target.value);
+  const handleSubmit = (values, { resetForm }) => {
+    dispatch(addContact(values));
+    resetForm();
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit} className={css.form}>
-        <Toaster />
-        <input type="text" value={name} onChange={handleChangeName} placeholder="Name" className={css.input} />
-        <input type="text" value={phoneNumber} onChange={handleChangePhoneNumber} placeholder="Phone number" className={css.input} />
-        <button type="submit" className={css.button}>
-          Add contacts
-        </button>
-      </form>
+      <h1 className={css.title}>PHONEBOOK</h1>
+      <Formik initialValues={initialValues} validationSchema={contactSchema} onSubmit={handleSubmit}>
+        <Form className={css.form}>
+          <div className={css.container}>
+            <Field type="text" name="name" placeholder="Name" className={css.file} />
+            <ErrorMessage name="name" component="div" className={css.error} />
+          </div>
+          <div className={css.container}>
+            <Field type="text" name="number" placeholder="Phone Number" className={css.file} />
+            <ErrorMessage name="number" component="div" className={css.error} />
+          </div>
+          <button type="submit" className={css.btn}>
+            Add Contact
+          </button>
+        </Form>
+      </Formik>
     </>
   );
 };
-
-export default ContactForm;
