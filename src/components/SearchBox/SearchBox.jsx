@@ -27,12 +27,6 @@ export const SearchBox = () => {
           <Loader />
         </b>
       )}
-      {filteredContacts.map((contact) => (
-        <div key={contact.id}>
-          <p>{contact.name}</p>
-          <p>{contact.number}</p>
-        </div>
-      ))}
     </div>
   );
 };

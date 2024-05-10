@@ -1,66 +1,5 @@
-/* .form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 35px;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 50px 30px 50px 30px;
-    width: 300px;
-    margin: auto;
-}
 
-.input {
-    height: 40px;
-    border: 1px solid black;
-    font-size: 14px;
-    letter-spacing: 0.04em;
-    padding-left: 16px;
-    border-radius: 8px;
-    outline: none;
-    margin-bottom: 20px;
-}
-
-input:last-child {
-    margin-bottom: 50px;
-}
-
-.input:hover {
-    border-color: coral;
-    transition: 300ms linear, color 300ms linear;
-}
-
-.input:focus {
-    border-color: coral;
-    transition: 300ms linear, color 300ms linear;
-}
-
-.button {
-    margin: 0 auto;
-    min-width: 165px;
-    display: flex;
-    height: 40px;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    letter-spacing: 0.04em;
-    color: #ffffff;
-    cursor: pointer;
-    background-color: chocolate;
-    border: 1px solid transparent;
-    border-radius: 8px;
-}
-
-.button:hover {
-    background-color: transparent;
-    color: black;
-    border-color: coral;
-    transition: 300ms linear, color 300ms linear;
-} */
-
-
-.title {
+.title{
     color: #404565;
     padding: 20px;
     font-size: 36px;
@@ -70,13 +9,13 @@ input:last-child {
 }
 
 .form {
-    padding: 20px;
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-    margin: auto;
+        padding: 20px;
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        margin: auto;
 
 }
 

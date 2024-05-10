@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
+import { Notify } from "notiflix";
 
 axios.defaults.baseURL = "https://connections-api.herokuapp.com";
 
@@ -14,35 +14,13 @@ const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = "";
 };
 
-export const register = createAsyncThunk("auth/register", async (credentials, thunkAPI) => {
+export const register = createAsyncThunk("auth/signup", async (credentials, thunkAPI) => {
   try {
     const res = await axios.post("/users/signup", credentials);
     // після успішної реєстрації додаємо токен до HTTP заголовка
     setAuthHeader(res.data.token);
-    toast.success("Welcome to phonebook!", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: false,
-      progress: undefined,
-      theme: "dark",
-      transition: Bounce,
-    });
     return res.data;
   } catch (error) {
-    toast.error(`${error.message}`, {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: false,
-      progress: undefined,
-      theme: "dark",
-      transition: Flip,
-    });
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -52,30 +30,9 @@ export const logIn = createAsyncThunk("auth/login", async (credentials, thunkAPI
     const res = await axios.post("/users/login", credentials);
     // після успішного входу додаємо токен до HTTP заголовка
     setAuthHeader(res.data.token);
-    toast.success("Welcome back!", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: false,
-      progress: undefined,
-      theme: "dark",
-      transition: Bounce,
-    });
+    Notify.success("Welcome back!");
     return res.data;
   } catch (error) {
-    toast.error(`${error.message}`, {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: false,
-      progress: undefined,
-      theme: "dark",
-      transition: Flip,
-    });
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -86,17 +43,6 @@ export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
     // після успішного виходу видаляємо токен з HTTP заголовка
     clearAuthHeader();
   } catch (error) {
-    toast.error(`${error.message}`, {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: false,
-      progress: undefined,
-      theme: "dark",
-      transition: Flip,
-    });
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -108,17 +54,6 @@ export const refreshUser = createAsyncThunk("auth/refresh", async (_, thunkAPI) 
 
   if (persistedToken === null) {
     // якщо токену немає, виходимо без виконання будь-якого запиту.
-    toast.error("Unable to fetch user", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: false,
-      progress: undefined,
-      theme: "dark",
-      transition: Flip,
-    });
     return thunkAPI.rejectWithValue("Unable to fetch user");
   }
 
@@ -128,17 +63,6 @@ export const refreshUser = createAsyncThunk("auth/refresh", async (_, thunkAPI) 
     const res = await axios.get("/users/current");
     return res.data;
   } catch (error) {
-    toast.error(`${error.message}`, {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: false,
-      progress: undefined,
-      theme: "dark",
-      transition: Flip,
-    });
     return thunkAPI.rejectWithValue(error.message);
   }
 });

@@ -28,17 +28,17 @@ export const RegistrationForm = () => {
     <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={userSchema}>
       <Form autoComplete="off" className={css.form}>
         <div className={css.container}>
-          <Field type="text" name="name" placeholder="Username" className={css.file} />
+          <Field type="text" name="name" placeholder="Username" className={css.input} />
           <ErrorMessage name="name" component="div" className={css.error} />
         </div>
 
         <div className={css.container}>
-          <Field type="email" name="email" placeholder="Email" className={css.file} />
+          <Field type="email" name="email" placeholder="Email" className={css.input} />
           <ErrorMessage name="email" component="div" className={css.error} />
         </div>
 
         <div className={css.container}>
-          <Field type="password" name="password" placeholder="Password" className={css.file} />
+          <Field type="password" name="password" placeholder="Password" className={css.input} />
           <ErrorMessage name="password" component="div" className={css.error} />
         </div>
 

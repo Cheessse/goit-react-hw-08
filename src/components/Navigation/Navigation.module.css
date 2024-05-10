@@ -8,15 +8,15 @@
     font-size: 18px;
     font-weight: 600;
     line-height: normal;
-    color: #404565;
+    color: #858585;
 
 }
 
 .active {
-    color: #8590c0;
+    color: #adb5bd;
 }
 
 .nav:hover {
-    color: #8590c0;
+    color: #adb5bd;
     transition: 300ms linear, color 300ms linear;
 }

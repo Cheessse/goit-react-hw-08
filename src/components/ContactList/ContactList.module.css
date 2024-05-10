@@ -1,20 +1,12 @@
-/* .contactList {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 0;
-    padding: 0;
-} */
-
-.container {
+.container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 20px; 
 }
 
-.title {
+.title{
     color: #404565;
     padding: 10px;
     font-size: 26px;
@@ -23,7 +15,7 @@
     letter-spacing: 0.03em;
 }
 
-.list {
+.list{
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -32,7 +24,7 @@
     align-items: center;
 }
 
-.text {
+.text{
     display: flex;
     gap: 20px;
 }

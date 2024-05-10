@@ -30,17 +30,17 @@ export const LoginForm = () => {
     <Formik initialValues={initialValues} validationSchema={loginSchema} onSubmit={handleSubmit}>
       <Form autoComplete="off" className={css.form}>
         <div className={css.container}>
-          <Field type="email" name="email" placeholder="Email" className={css.file} />
+          <Field type="email" name="email" placeholder="Email" className={css.input} />
           <ErrorMessage name="email" component="div" className={css.error} />
         </div>
 
         <div className={css.container}>
-          <Field type="password" name="password" placeholder="Password" className={css.file} />
+          <Field type="password" name="password" placeholder="Password" className={css.input} />
           <ErrorMessage name="password" component="div" className={css.error} />
         </div>
 
         <button type="submit" className={css.btn}>
-          Log In
+          Login
         </button>
       </Form>
     </Formik>
