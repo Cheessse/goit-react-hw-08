@@ -13,7 +13,7 @@ const RegisterPage = lazy(() => import("./pages/RegistrationPage/RegistrationPag
 const LoginPage = lazy(() => import("./pages/LogInPage/LogInPage"));
 const ContactsPage = lazy(() => import("./pages/ContactsPage/ContactsPage"));
 
-export const App = () => {
+const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
 
@@ -40,3 +40,5 @@ export const App = () => {
     </Layout>
   );
 };
+
+export default App;
